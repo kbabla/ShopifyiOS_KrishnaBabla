@@ -1,0 +1,6 @@
+framework module Pods_ShopifyiOS_KrishnaBablaTests {
+  umbrella header "Pods-ShopifyiOS_KrishnaBablaTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

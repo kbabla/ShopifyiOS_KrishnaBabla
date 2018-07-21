@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+       // let navigationController = self.window?.rootViewController as! UINavigationController
+       // let viewController = navigationController.topViewController as! ViewController
+        
+         let file = "https://shopicruit.myshopify.com/admin/orders.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
+        let url = URL(string: file)
+            do {
+
+                let data = try Data(contentsOf: url!)
+            
+                let json = try JSON(data: data)
+                
+                
+                print(json)
+               // viewController.json = json
+            }
+            catch {
+                 print("fail")
+               // viewController.json = JSON.null
+            }
+        
+        
+  
+        
+        
         return true
+       
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
