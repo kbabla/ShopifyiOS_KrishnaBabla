@@ -11,8 +11,6 @@ import Foundation
 struct fullOrderSummary: Codable{
     var orders: [orders]
  
-    init(orders:[orders]){
-       self.orders = orders
-    }
+   
     
 }
