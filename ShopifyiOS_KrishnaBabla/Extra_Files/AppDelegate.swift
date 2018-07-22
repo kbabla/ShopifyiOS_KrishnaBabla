@@ -13,34 +13,40 @@ import SwiftyJSON
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+  
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
        // let navigationController = self.window?.rootViewController as! UINavigationController
        // let viewController = navigationController.topViewController as! ViewController
-        
+        var json:JSON
+        var data:Data
          let file = "https://shopicruit.myshopify.com/admin/orders.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
         let url = URL(string: file)
             do {
 
-                let data = try Data(contentsOf: url!)
+                 data = try Data(contentsOf: url!)
             
-                let json = try JSON(data: data)
+                 json = try JSON(data: data)
+                let decoder = JSONDecoder()
+                do{
+                    let todo = try decoder.decode(fullOrderSummary.self, from: data)
+                }
+                    
+                catch{
+                    print(error)
+                }
                 
-                
-                print(json)
-               // viewController.json = json
+                print(json["orders"][5]."province")
+//
             }
             catch {
                  print("fail")
                // viewController.json = JSON.null
             }
-        
-        
-  
-        
+        //call singleton
+      
         
         return true
        

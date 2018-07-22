@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 
 class ViewController: UIViewController {
+    var json: JSON = JSON.null
 
     override func viewDidLoad() {
         super.viewDidLoad()
