@@ -8,23 +8,15 @@
 //
 import Foundation
 
-struct orders: Codable{
-    var province:String
-    var email:String
-    var created_at:String
-    var first_name:String
-    var last_name:String
-    var total_price_usd:Double
-    
-    init(province:String, email:String, created_at: String, first_name: String, last_name:String, total_price_usd: Double){
-        self.province = province
-        self.email = email
-        self.created_at = created_at
-        self.first_name = first_name
-        self.last_name = last_name
-        self .total_price_usd = total_price_usd
-    }
+struct orders: Decodable {
+    let id: Int
+    let email: String
+    let created_at: String
+    let billing_address: billingAddress?
+    let total_price: String?
     
 }
+
+
 
 

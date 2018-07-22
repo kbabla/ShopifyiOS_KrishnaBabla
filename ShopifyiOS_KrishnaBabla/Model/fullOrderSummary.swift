@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct fullOrderSummary: Codable{
-    var orders: [orders]
- 
-   
+struct fullOrderSummary:Decodable{
+    let orders: [orders]
     
 }
+
