@@ -11,6 +11,7 @@ class orderDataModel{
 
     
     private var dataModelOrders:fullOrderSummary
+    private var dataModelOrders2017: fullOrderSummary
     static var singleton = orderDataModel()
    
     
@@ -18,15 +19,85 @@ class orderDataModel{
         
     let ordersForInIt =  [orders]()
     self.dataModelOrders = fullOrderSummary(orders: ordersForInIt )
-        
+    self.dataModelOrders2017 = fullOrderSummary(orders: ordersForInIt)
     }
     
     func addDataToModel(Data: fullOrderSummary) -> Void {
         self.dataModelOrders = Data
-    }
+        
+        for index in 0...numberOfOrders()-1{
+            if dataModelOrders.orders[index].created_at.contains("2017"){
+                dataModelOrders2017.orders.append(dataModelOrders.orders[index])
+            }
+
+        }
+        print(dataModelOrders2017.orders.count)
+            }
     
     func numberOfOrders() -> Int {
        return self.dataModelOrders.orders.count
+    }
+    
+    func numberOfOrders2017() -> Int {
+        return self.dataModelOrders2017.orders.count
+    }
+    
+    func numberOfProvinces() -> Int {
+        var intForReturn: Int = 0
+        var arrayOfProvinces:[String] = [String]()
+        arrayOfProvinces.append((dataModelOrders.orders[0].billing_address?.province)!)
+        var provinceToCompare: String = (dataModelOrders.orders[0].billing_address?.province)!
+         for index in 0...numberOfOrders()-1{
+            if provinceToCompare == dataModelOrders.orders[index].billing_address?.province{
+                for compare2 in arrayOfProvinces{
+                    if provinceToCompare == compare2{
+                        
+                     break
+                    }
+                }
+                intForReturn+=1
+                provinceToCompare = (dataModelOrders.orders[index].billing_address?.province)!
+            }
+            else{
+                
+            }
+        }
+        print("array of Provinces Count: ")
+        print(arrayOfProvinces.count)
+        return intForReturn
+    }
+    
+    func printForTableView(index: Int) -> String {
+        var stringForReturn: String = ""
+         let d = "---   $"+self.dataModelOrders2017.orders[index].total_price!
+        guard let a = self.dataModelOrders2017.orders[index].billing_address?.last_name else{return "No Name Provided "+d }
+        let b = ", "
+        guard let c = (self.dataModelOrders2017.orders[index].billing_address?.first_name)else{return "no name provided"}
+       
+        
+        stringForReturn = a+b+c+d
+        return stringForReturn
+        
+    }
+    
+    func printByProvinceNumber(province: String) -> Int {
+        var forReturn: Int = 0
+        for index in 0...numberOfOrders()-1{
+            if province == dataModelOrders.orders[index].billing_address?.province{
+                forReturn+=1
+            }
+        }
+        return forReturn
+    }
+    
+    func printProvinceName() -> [String] {
+        var names = [String]()
+        names.append((dataModelOrders.orders[0].billing_address?.province)!)
+        for index in 0...numberOfOrders()-1{
+            
+        }
+        
+        return names
     }
     
     func printOrder(index: Int) -> [Any] {

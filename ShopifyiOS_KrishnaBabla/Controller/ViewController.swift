@@ -15,13 +15,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableViewYear: UITableView!
     @IBOutlet weak var labelProvince: UILabel!
     @IBOutlet weak var labelYear: UILabel!
-    
+    let dataModel:orderDataModel = orderDataModel.singleton
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let dataModel:orderDataModel = orderDataModel.singleton
+        
         var json:JSON
         var data:Data
         let file = "https://shopicruit.myshopify.com/admin/orders.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
@@ -35,9 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             do{
                 let todo = try decoder.decode(fullOrderSummary.self, from: data)
                 dataModel.addDataToModel(Data: todo)
-                print( dataModel.numberOfOrders())
-            
-                print(dataModel.printOrder(index: 0))
+        
             }
                 
             catch{
@@ -50,31 +48,59 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
            
         }
         
-        labelProvince.text = "Orders by Province"
-        labelYear.text = "Orders in 2017"
+        labelProvince.text = "  Orders by Province"
+        guard let numberIn2017:String = String(dataModel.numberOfOrders2017()) else{}
+        labelYear.text = "  Orders in 2017-- "+numberIn2017+" Total"
+        
        
        
         
     }
+   
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 1
     }
     
   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        var numberOfRows = 1
+        if tableView == tableViewProvince{
+           numberOfRows = dataModel.numberOfProvinces()
+        }
+        if tableView == tableViewYear{
+           numberOfRows = dataModel.numberOfOrders2017()
+        }
+        
+       
+        return numberOfRows
+        
     }
     
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellForProvince", for: indexPath)
+        var whichCell: UITableViewCell!
+       
         
-        // Configure the cell...
+        if tableView == tableViewProvince{
+            
+            whichCell = tableView.dequeueReusableCell(withIdentifier: "cellForProvince", for: indexPath)
+            whichCell.textLabel?.text = "by Province"
+            let numberPerProvince = dataModel.printByProvinceNumber(province: "California")
+            whichCell.detailTextLabel?.text = String(numberPerProvince)
+        }
+        if tableView == tableViewYear{
+              
+            whichCell = tableView.dequeueReusableCell(withIdentifier: "cellForYear", for: indexPath)
+            whichCell.textLabel?.text = dataModel.printForTableView(index: indexPath.row)
+        }
         
-        return cell
+       
+        
+        return whichCell
     }
 
     override func didReceiveMemoryWarning() {
