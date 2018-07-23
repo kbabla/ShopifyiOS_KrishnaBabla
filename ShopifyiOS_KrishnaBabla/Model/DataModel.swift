@@ -116,6 +116,12 @@ class orderDataModel{
         return names
     }
     
+//    func sort() -> Void {
+//        dataModelOrders.orders = dataModelOrders.orders.sorted{$0.billing_address?.province ?? "none" < $1.billing_address?.province ?? "none" }
+//
+//        //print(dataModelOrders.orders)
+//    }
+    
     func printOrder(index: Int) -> [Any] {
         var orderForReturn = [Any]()
         orderForReturn.append(self.dataModelOrders.orders[index].id)
