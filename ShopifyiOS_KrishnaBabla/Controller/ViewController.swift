@@ -9,7 +9,13 @@
 import UIKit
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+ 
+    @IBOutlet weak var tableViewProvince: UITableView!
+    @IBOutlet weak var tableViewYear: UITableView!
+    @IBOutlet weak var labelProvince: UILabel!
+    @IBOutlet weak var labelYear: UILabel!
+    
     
 
     override func viewDidLoad() {
@@ -43,9 +49,32 @@ class ViewController: UIViewController {
             print("fail")
            
         }
+        
+        labelProvince.text = "Orders by Province"
+        labelYear.text = "Orders in 2017"
        
        
         
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 3
+    }
+    
+  
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellForProvince", for: indexPath)
+        
+        // Configure the cell...
+        
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
