@@ -52,6 +52,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         guard let numberIn2017:String = String(dataModel.numberOfOrders2017()) else{}
         labelYear.text = "  Orders in 2017-- "+numberIn2017+" Total"
         
+        for index in 0...dataModel.numberOfOrders()-1{
+            print(dataModel.printOrder(index: index))
+        }
        
        
         
@@ -88,8 +91,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if tableView == tableViewProvince{
             
             whichCell = tableView.dequeueReusableCell(withIdentifier: "cellForProvince", for: indexPath)
-            whichCell.textLabel?.text = "by Province"
-            let numberPerProvince = dataModel.printByProvinceNumber(province: "California")
+            whichCell.textLabel?.text = dataModel.printProvinceName()[indexPath.row]
+            let numberPerProvince = dataModel.printByProvinceNumber(province: dataModel.printProvinceName()[indexPath.row])
             whichCell.detailTextLabel?.text = String(numberPerProvince)
         }
         if tableView == tableViewYear{

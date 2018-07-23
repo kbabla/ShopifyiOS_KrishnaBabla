@@ -12,6 +12,7 @@ class orderDataModel{
     
     private var dataModelOrders:fullOrderSummary
     private var dataModelOrders2017: fullOrderSummary
+     private var dataModelOrders2:fullOrderSummary
     static var singleton = orderDataModel()
    
     
@@ -20,18 +21,21 @@ class orderDataModel{
     let ordersForInIt =  [orders]()
     self.dataModelOrders = fullOrderSummary(orders: ordersForInIt )
     self.dataModelOrders2017 = fullOrderSummary(orders: ordersForInIt)
+    self.dataModelOrders2 = fullOrderSummary(orders: ordersForInIt )
     }
     
     func addDataToModel(Data: fullOrderSummary) -> Void {
         self.dataModelOrders = Data
+        self.dataModelOrders2 = Data
         
         for index in 0...numberOfOrders()-1{
             if dataModelOrders.orders[index].created_at.contains("2017"){
-                dataModelOrders2017.orders.append(dataModelOrders.orders[index])
+                dataModelOrders2017.orders.append(dataModelOrders.orders[index]) 
             }
+          
 
         }
-        print(dataModelOrders2017.orders.count)
+
             }
     
     func numberOfOrders() -> Int {
@@ -53,6 +57,9 @@ class orderDataModel{
                     if provinceToCompare == compare2{
                         
                      break
+                    }
+                    else{
+                        arrayOfProvinces.append(compare2)
                     }
                 }
                 intForReturn+=1
@@ -92,11 +99,20 @@ class orderDataModel{
     
     func printProvinceName() -> [String] {
         var names = [String]()
-        names.append((dataModelOrders.orders[0].billing_address?.province)!)
-        for index in 0...numberOfOrders()-1{
+        for index in dataModelOrders.orders{
+            if !names.contains(index.billing_address?.province ?? "none"){
+        names.append(index.billing_address?.province ?? "none")
+            if names.last == "none"{
+                names.removeLast()
+            }
+            
             
         }
+        }
         
+        print("names array:")
+        names = names.sorted {$0 < $1}
+        print(names)
         return names
     }
     
