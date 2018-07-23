@@ -7,7 +7,7 @@
 //
 //
 import Foundation
-
+//Data Structure for JSON Decoding
 struct orders: Decodable {
     let id: Int
     let email: String

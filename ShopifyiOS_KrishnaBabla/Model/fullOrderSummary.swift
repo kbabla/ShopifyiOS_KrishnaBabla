@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//Data Structure for JSON Decoding
 struct fullOrderSummary:Decodable{
     var orders: [orders]
     

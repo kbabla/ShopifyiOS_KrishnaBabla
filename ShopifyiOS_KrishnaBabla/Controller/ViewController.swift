@@ -15,12 +15,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableViewYear: UITableView!
     @IBOutlet weak var labelProvince: UILabel!
     @IBOutlet weak var labelYear: UILabel!
+    
+    //Singleton design patter
     let dataModel:orderDataModel = orderDataModel.singleton
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // JSON Parsing with SwiftyJSON
         
         var json:JSON
         var data:Data
@@ -47,7 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("fail")
            
         }
-        
+        //Lables
         labelProvince.text = "  Orders by Province"
         guard let numberIn2017:String = String(dataModel.numberOfOrders2017()) else{}
         labelYear.text = "  Orders in 2017-- "+numberIn2017+" Total"
@@ -71,6 +73,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRows = 1
+        //Sorting by the 2 Tableviews on the ViewController
         if tableView == tableViewProvince{
            numberOfRows = dataModel.numberOfProvinces()
         }
@@ -88,7 +91,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var whichCell: UITableViewCell!
        
-        
+        //Sorting by the 2 Tableviews on the ViewController
         if tableView == tableViewProvince{
             
             whichCell = tableView.dequeueReusableCell(withIdentifier: "cellForProvince", for: indexPath)

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//Data Structure for JSON Decoding
 struct billingAddress: Decodable {
     let first_name: String
     let last_name: String

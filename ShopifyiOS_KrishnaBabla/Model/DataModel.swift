@@ -9,7 +9,7 @@
 import Foundation
 class orderDataModel{
 
-    
+    //Singleton class variables
     private var dataModelOrders:fullOrderSummary
     private var dataModelOrders2017: fullOrderSummary
      private var dataModelOrders2:fullOrderSummary
@@ -23,11 +23,12 @@ class orderDataModel{
     self.dataModelOrders2017 = fullOrderSummary(orders: ordersForInIt)
     self.dataModelOrders2 = fullOrderSummary(orders: ordersForInIt )
     }
-    
+    //Functions
     func addDataToModel(Data: fullOrderSummary) -> Void {
         self.dataModelOrders = Data
         self.dataModelOrders2 = Data
         
+        //sort for 2017 orders
         for index in 0...numberOfOrders()-1{
             if dataModelOrders.orders[index].created_at.contains("2017"){
                 dataModelOrders2017.orders.append(dataModelOrders.orders[index]) 
@@ -116,11 +117,8 @@ class orderDataModel{
         return names
     }
     
-//    func sort() -> Void {
-//        dataModelOrders.orders = dataModelOrders.orders.sorted{$0.billing_address?.province ?? "none" < $1.billing_address?.province ?? "none" }
-//
-//        //print(dataModelOrders.orders)
-//    }
+    
+
     
     func printOrder(index: Int) -> [Any] {
         var orderForReturn = [Any]()
