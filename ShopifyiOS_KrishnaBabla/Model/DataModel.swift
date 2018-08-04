@@ -117,6 +117,23 @@ class orderDataModel{
         return names
     }
     
+    func printArrayByProvince(province: String, indexOfArray: Int)-> String{
+        var arrayForReturn: [orders] = [orders]()
+         for index in dataModelOrders.orders{
+            if index.billing_address?.province == province {
+                arrayForReturn.append(index)
+            }
+        }
+        var stringForReturn: String = ""
+        let d = "---   $"+arrayForReturn[indexOfArray].total_price!
+         let b = ", "
+        guard let a = arrayForReturn[indexOfArray].billing_address?.first_name else{return "No Name"}
+        guard let c = arrayForReturn[indexOfArray].billing_address?.last_name else{return "No Name"}
+        stringForReturn = a+b+c+d
+        return stringForReturn
+        
+    }
+    
     
 
     

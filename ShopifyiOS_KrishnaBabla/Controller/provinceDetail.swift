@@ -44,8 +44,11 @@ class provinceDetail: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homescreenCell", for: indexPath)
+        //indexpath.section
+        let sectionNumber = indexPath.section
+       
         
-        cell.textLabel?.text = String(indexPath.row)
+        cell.textLabel?.text = dataModel.printArrayByProvince(province: dataModel.printProvinceName()[sectionNumber], indexOfArray: indexPath.row)
 
         return cell
     }
