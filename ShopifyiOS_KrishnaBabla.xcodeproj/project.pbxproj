@@ -10,11 +10,11 @@
 		0C636D43FFD6D421257DA328 /* Pods_ShopifyiOS_KrishnaBablaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4298730457B8AB573643562 /* Pods_ShopifyiOS_KrishnaBablaTests.framework */; };
 		1216665844D52AEC0B45476C /* Pods_ShopifyiOS_KrishnaBablaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09FC6BFBF07E701D3D2631 /* Pods_ShopifyiOS_KrishnaBablaUITests.framework */; };
 		607B3B3EEDA91964832ABAB9 /* Pods_ShopifyiOS_KrishnaBabla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F951CE6F3D836889B22628EB /* Pods_ShopifyiOS_KrishnaBabla.framework */; };
-		6B69A1902103EA160015113D /* fullOrderSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69A18F2103EA160015113D /* fullOrderSummary.swift */; };
+		6B69A1902103EA160015113D /* FullOrderSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69A18F2103EA160015113D /* FullOrderSummary.swift */; };
 		6B69A1962103F8880015113D /* OrderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69A1952103F8880015113D /* OrderClass.swift */; };
 		6B69A1982103FCBF0015113D /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69A1972103FCBF0015113D /* DataModel.swift */; };
-		6B69A19A210538F40015113D /* billAddressStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69A199210538F40015113D /* billAddressStructure.swift */; };
-		6B69A19C210543C60015113D /* provinceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69A19B210543C60015113D /* provinceDetail.swift */; };
+		6B69A19A210538F40015113D /* BillAddressStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69A199210538F40015113D /* BillAddressStructure.swift */; };
+		6B69A19C210543C60015113D /* ProvinceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69A19B210543C60015113D /* ProvinceDetail.swift */; };
 		6B69AAD72103D76100DDFF55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69AAD62103D76100DDFF55 /* AppDelegate.swift */; };
 		6B69AAD92103D76100DDFF55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69AAD82103D76100DDFF55 /* ViewController.swift */; };
 		6B69AADC2103D76100DDFF55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B69AADA2103D76100DDFF55 /* Main.storyboard */; };
@@ -44,11 +44,11 @@
 /* Begin PBXFileReference section */
 		2A09FC6BFBF07E701D3D2631 /* Pods_ShopifyiOS_KrishnaBablaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyiOS_KrishnaBablaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		439AD94EFDCC311BA747D32F /* Pods-ShopifyiOS_KrishnaBablaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyiOS_KrishnaBablaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShopifyiOS_KrishnaBablaUITests/Pods-ShopifyiOS_KrishnaBablaUITests.release.xcconfig"; sourceTree = "<group>"; };
-		6B69A18F2103EA160015113D /* fullOrderSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fullOrderSummary.swift; sourceTree = "<group>"; };
+		6B69A18F2103EA160015113D /* FullOrderSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullOrderSummary.swift; sourceTree = "<group>"; };
 		6B69A1952103F8880015113D /* OrderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderClass.swift; sourceTree = "<group>"; };
 		6B69A1972103FCBF0015113D /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		6B69A199210538F40015113D /* billAddressStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = billAddressStructure.swift; sourceTree = "<group>"; };
-		6B69A19B210543C60015113D /* provinceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = provinceDetail.swift; sourceTree = "<group>"; };
+		6B69A199210538F40015113D /* BillAddressStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillAddressStructure.swift; sourceTree = "<group>"; };
+		6B69A19B210543C60015113D /* ProvinceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceDetail.swift; sourceTree = "<group>"; };
 		6B69AAD32103D76100DDFF55 /* ShopifyiOS_KrishnaBabla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopifyiOS_KrishnaBabla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B69AAD62103D76100DDFF55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B69AAD82103D76100DDFF55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,9 +115,9 @@
 		6B69A1912103EA270015113D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6B69A18F2103EA160015113D /* fullOrderSummary.swift */,
+				6B69A18F2103EA160015113D /* FullOrderSummary.swift */,
 				6B69A1952103F8880015113D /* OrderClass.swift */,
-				6B69A199210538F40015113D /* billAddressStructure.swift */,
+				6B69A199210538F40015113D /* BillAddressStructure.swift */,
 				6B69A1972103FCBF0015113D /* DataModel.swift */,
 			);
 			path = Model;
@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				6B69AAD82103D76100DDFF55 /* ViewController.swift */,
-				6B69A19B210543C60015113D /* provinceDetail.swift */,
+				6B69A19B210543C60015113D /* ProvinceDetail.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -504,11 +504,11 @@
 			files = (
 				6B69A1982103FCBF0015113D /* DataModel.swift in Sources */,
 				6B69AAD92103D76100DDFF55 /* ViewController.swift in Sources */,
-				6B69A19C210543C60015113D /* provinceDetail.swift in Sources */,
+				6B69A19C210543C60015113D /* ProvinceDetail.swift in Sources */,
 				6B69A1962103F8880015113D /* OrderClass.swift in Sources */,
 				6B69AAD72103D76100DDFF55 /* AppDelegate.swift in Sources */,
-				6B69A1902103EA160015113D /* fullOrderSummary.swift in Sources */,
-				6B69A19A210538F40015113D /* billAddressStructure.swift in Sources */,
+				6B69A1902103EA160015113D /* FullOrderSummary.swift in Sources */,
+				6B69A19A210538F40015113D /* BillAddressStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
