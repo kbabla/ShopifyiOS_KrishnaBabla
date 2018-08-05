@@ -10,10 +10,12 @@ import UIKit
 import SwiftyJSON
 
 class provinceDetail: UITableViewController {
+  
+    
    let dataModel:orderDataModel = orderDataModel.singleton
     override func viewDidLoad() {
     
-
+      
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
